@@ -121,6 +121,21 @@ html, body {
   font-size: 24px;
 }
 
+.not-found {
+  display: none;
+
+  width: 50vw;
+  margin-top: 64px;
+
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  display: flex;
+  align-items: center;
+
+  color: #F8F8F2;
+}
+
 .streaming-section {
   width: 100%;
 
@@ -211,4 +226,123 @@ html, body {
 
   font-size: 20px;
   color: #f8f8f2;
+}
+
+#modal-overlay, #modal-overlay-input {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+#modal, #modal2 {
+  background: #44475A;
+  width: 512px;
+  height: 646px;
+
+  margin: 100px auto;
+  padding: 32px;
+  border-radius: 5px;
+  text-align: center;
+
+    
+  border: 5px solid #282A36;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 50px;
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#modal h2, #modal2 h2 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #BD93F9;
+
+  margin-bottom: 32px;
+}
+
+.stream-button {
+  width: 100%;
+  background: rgba(40, 42, 54, 0.2);
+  border-radius: 50px;
+  padding: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}
+
+.stream-button span {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.tools {
+  position: absolute;
+  right: 16px;
+
+  display: flex;
+  gap: 16px;
+}
+
+.tools img {
+  width: 15px;
+  cursor: pointer;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-platform {
+  margin-top: 48px;
+  background: #BD93F9;
+  cursor: pointer;
+}
+
+.add-platform span {
+  color: #282A36;
+  font-size: 20px;
+  font-weight: 700 !important;
+}
+
+#modal2 input, #modal input:focus {
+  outline: none;
+  width: 100%;
+  background: #FFFFFF;
+  border: 5px solid #282A36;
+  border-radius: 20px;
+
+  padding: 16px 32px;
+
+  font-size: 24px;
+}
+
+#modal2 {
+  display: flex;
+  gap: 32px;
+
+  height: auto;
 }

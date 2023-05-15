@@ -18,7 +18,7 @@
       <img class="streaming" src="../../assets/disney-plus.svg" alt="Streaming">
       <img class="streaming-disabled" src="../../assets/hbo.svg" alt="Streaming">
       <img class="streaming-disabled" src="../../assets/roku.svg" alt="Streaming">
-      <img class="streaming" src="../../assets/add.svg" alt="Adicionar Streaming">
+      <img id="open-add-streaming" class="streaming" src="../../assets/add.svg" alt="Adicionar Streaming">
     </div>
     <hr/>
     <div class="leave">
@@ -42,6 +42,12 @@
         </form>
       </div>
     </div>
+
+    <!-- <div class="not-found">
+      <p>
+        Bem vindo! Pelo visto sua lista de séries favoritas ainda está vazia, tente adicionar as plataformas de sua preferência na listagem 😉
+      </p>
+    </div> -->
 
     <div class="streaming-section">
       <div class="streaming-title">
@@ -116,6 +122,63 @@
         </div>
       </div>
     </div>
+
+    <div id="modal-overlay">
+      <div id="modal">
+        <h2>Selecione a plataforma de streaming</h2>
+        <div class="btn-container">
+          <div class="stream-button">
+            <span>Disney Plus</span>
+            <div class="tools">
+              <img src="../../assets/edit.svg" alt="Editar">
+              <img src="../../assets/delete.svg" alt="Deletar">
+            </div>
+          </div>
+          <div class="stream-button">
+            <span>HBO max</span>
+            <div class="tools">
+              <img src="../../assets/edit.svg" alt="Editar">
+              <img src="../../assets/delete.svg" alt="Deletar">
+            </div>
+          </div>
+          <div class="stream-button">
+            <span>Netflix</span>
+            <div class="tools">
+              <img src="../../assets/edit.svg" alt="Editar">
+              <img src="../../assets/delete.svg" alt="Deletar">
+            </div>
+          </div>
+          <div class="stream-button">
+            <span>Prime Video</span>
+            <div class="tools">
+              <img src="../../assets/edit.svg" alt="Editar">
+              <img src="../../assets/delete.svg" alt="Deletar">
+            </div>
+          </div>
+          <div class="stream-button">
+            <span>Roku</span>
+            <div class="tools">
+              <img src="../../assets/edit.svg" alt="Editar">
+              <img src="../../assets/delete.svg" alt="Deletar">
+            </div>
+          </div>
+        </div>
+        <div id="close-modal" class="stream-button add-platform">
+          <span id="close-modal2">Adicionar Plataforma</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-overlay-input">
+      <div id="modal2">
+        <h2>Digite o nome da plataforma de streaming</h2>
+        <input type="text" placeholder="WatchMe Streaming">
+        <div id="close-modal-input" class="stream-button add-platform">
+          <span id="close-modal-input2">Adicionar Plataforma</span>
+        </div>
+      </div>
+    </div>
+
   </div>
   <script src="./script.js"></script>
 </body>
