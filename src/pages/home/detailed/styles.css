@@ -70,62 +70,17 @@ html, body {
 }
 
 .content-container {
-  width: 100%;
   margin-left: 224px;
   padding: 64px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;
-
-  gap: 64px;
-}
-
-.title-search {
-  width: 50vw;
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-}
-
-.title-search h1{
-  text-align: center;
-  font-size: 128px;
-  color: #BD93F9;
-
-}
-
-.title-search .search-bar {
-  width: 100%;
-  position: relative;
-}
-
-.title-search .search-bar img {
-  position: absolute;
-  right: 0;
-  left: 930px;
-  top: 8px;
-}
-
-.title-search .search-bar form input {
-  all: unset;
-  width: 50vw;
-  padding: 16px 32px;
-
-  background-color: #F8F8F2;
-  border: 3px solid #282A36;
-  border-radius: 40px;
-
-  color: #44475a;
-  font-size: 24px;
 }
 
 .streaming-section {
   width: 100%;
+  height: 100%;
 
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   gap: 16px;
 }
 
@@ -149,6 +104,7 @@ html, body {
 .streaming-section .card-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   gap: 64px;
 }
 
