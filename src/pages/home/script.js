@@ -13,6 +13,11 @@ document.addEventListener("DOMContentLoaded", function() {
     var modalOverlayInput = document.getElementById("modal-overlay-input");
     var closeModalInput = document.getElementById("close-modal-input");
     var closeModalInput2 = document.getElementById("close-modal-input2");
+    var cardContent = document.getElementById("card-content");
+    var modalOverlayInput = document.getElementById("modal-overlay-input");
+    var modalOverlaySerie = document.getElementById("modal-overlay-serie");
+    var closeModalSerie = document.getElementById("close-modal-serie");
+    var closeModalSerie2 = document.getElementById("close-modal-serie2");
 
     openModalButton.addEventListener("click", function() {
         modalOverlay.style.display = "block";
@@ -53,6 +58,36 @@ document.addEventListener("DOMContentLoaded", function() {
     closeModalInput2.addEventListener("click", function(event) {
         if (event.target === closeModalInput2) {
             modalOverlayInput.style.display = "none";
+        }
+    });
+
+    cardContent.addEventListener("click", function(event) {
+        if (event.target === cardContent) {
+            modalOverlaySerie.style.display = "block";
+        }
+    });
+
+    cardContent.addEventListener("click", function(event) {
+        if (event.target === closeModalSerie) {
+            modalOverlaySerie.style.display = "block";
+        }
+    });
+
+    closeModalSerie.addEventListener("click", function(event) {
+        if (event.target === closeModalSerie) {
+            modalOverlaySerie.style.display = "none";
+        }
+    });
+
+    closeModalSerie2.addEventListener("click", function(event) {
+        if (event.target === closeModalSerie2) {
+            modalOverlaySerie.style.display = "none";
+        }
+    });
+
+    modalOverlaySerie.addEventListener("click", function(event) {
+        if (event.target === modalOverlaySerie) {
+            modalOverlaySerie.style.display = "none";
         }
     });
 });
