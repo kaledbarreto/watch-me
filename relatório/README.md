@@ -56,3 +56,26 @@ Grupo:
 ![image](https://github.com/kaledbarreto/watch-me/assets/54548671/11bc5535-9d6d-41ed-af85-658ef785a83c)
 
 ![image](https://github.com/kaledbarreto/watch-me/assets/54548671/3af5cb26-381c-4381-82ea-3d9285b73578)
+
+---
+
+### Wireframe
+
+![image](https://github.com/kaledbarreto/watch-me/assets/54548833/dcd76fc8-0a03-4c50-875e-b2acef8d33aa)
+
+![image](https://github.com/kaledbarreto/watch-me/assets/54548833/ab8ff53a-6784-445e-8380-f1932a76dfae)
+
+![image](https://github.com/kaledbarreto/watch-me/assets/54548833/fea773b8-e319-495b-8968-cba2aedda23c)
+
+![image](https://github.com/kaledbarreto/watch-me/assets/54548833/5f17da23-2b7d-43c1-b5ff-1c36f464af2e)
+
+---
+
+### Considerações finais
+
+> Em nossa plataforma, levamos em consideração princípios fundamentais de design para construir interfaces amigáveis e intuitivas. Utilizamos o princípio do feedback para fornecer aos usuários um retorno imediato sobre suas ações, permitindo que saibam o que está acontecendo em cada etapa. Dessa forma, garantimos que eles tenham uma experiência fluida e satisfatória ao criar suas listas de séries.
+Outro princípio que aplicamos é o da consistência, mantendo elementos visuais e de comportamento coerentes em todo o design da plataforma. Isso cria um padrão reconhecível e facilita a compreensão e navegação do usuário. Além disso, seguimos o princípio da simplicidade, mantendo o design limpo e livre de elementos desnecessários, a fim de minimizar a complexidade e tornar a plataforma fácil de entender.
+
+> A visibilidade também é uma prioridade em nosso sistema, garantindo que os elementos importantes sejam claramente visíveis para os usuários. Isso permite que eles acessem e utilizem facilmente as funcionalidades da plataforma, sem esforço adicional. Por fim, buscamos a eficiência, projetando a interface para que os usuários possam realizar suas tarefas de forma eficiente e eficaz, economizando tempo e esforço ao criar e gerenciar suas listas de séries.
+> 
+> Combinando esses princípios de design com a proposta de nossa plataforma, proporcionamos aos usuários uma experiência completa, onde podem organizar, descobrir e desfrutar de suas séries favoritas de maneira intuitiva, eficiente e personalizada. Nossa equipe está empenhada em oferecer uma interface que seja amigável e atenda às necessidades dos usuários, tornando sua jornada de entretenimento ainda mais prazerosa.
