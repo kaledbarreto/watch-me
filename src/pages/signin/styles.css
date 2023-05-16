@@ -17,7 +17,7 @@
     justify-content: center;
   }
 
-form {
+#signup-form {
     width: 50vw;
 
     display: flex;
@@ -76,7 +76,7 @@ form {
     justify-content: center;
 }
 
-.btn-container input {
+#entrar {
     background: rgba(189, 147, 249, 0.6);
     color: #fff;
     padding: 10px 20px;
@@ -88,6 +88,8 @@ form {
     font-size: 24px;
 
     margin-top: 16px;
+
+    text-align: center;
 }
 
 input[type="text"], input[type="password"] {
