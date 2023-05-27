@@ -1,0 +1,11 @@
+.DS_Store
+*.log*
+*.swo
+*.swp
+build/
+coverage/
+dist/
+node_modules/
+.eslintcache
+.env
+.stylelintcache
