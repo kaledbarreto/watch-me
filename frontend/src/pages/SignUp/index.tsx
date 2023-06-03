@@ -51,7 +51,7 @@ export function SignUp() {
             <a className='text-link' href="mailto:no-reply@watchme.com?subject=Suporte&body=Tive problema no cadastro e gostaria de tirar dúvida sobre...">Precisa de Ajuda?</a>
           </div>
         </div>
-        <a className='text-link' href="/">Já tem uma conta? <strong>Login</strong></a>
+        <a className='text-link' href="/login">Já tem uma conta? <strong>Login</strong></a>
       </form>
     </div>
   );
