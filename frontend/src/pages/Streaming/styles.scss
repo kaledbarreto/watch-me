@@ -1,0 +1,56 @@
+@use "../../styles/colors.scss" as colors;
+
+.container_straming_details {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 64px;
+
+  background-color: colors.$blue-zodiac;
+
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 64px;
+}
+
+.details_heading {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  background-color: colors.$black-rock;
+  padding: 16px;
+  border-radius: 50%;
+}
+
+.straming_details_list_title {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  h3 {
+    font-weight: 500;
+    font-size: 48px * 1.5;
+    line-height: 32px * 1.5;
+    color: colors.$ivory;
+  }
+}
+
+.details_cards_container {
+  width: 100%;
+  padding: 16px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}
