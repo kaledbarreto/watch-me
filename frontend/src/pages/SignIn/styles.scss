@@ -1,8 +1,12 @@
 @use "../../styles/colors.scss" as colors;
 
-.container {
-  width: 100vw;
-  height: 100vh;
+body {
+  background-color: red;
+}
+
+.container-login {
+  width: 100%;
+  min-height: 100vh;
   padding-top: 32px;
   background-color: colors.$midnight-express;
 

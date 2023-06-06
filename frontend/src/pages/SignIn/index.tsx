@@ -1,10 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useCallback } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import * as yup from 'yup';
+import { useLogin } from '../../api/client';
 import Logo from '../../assets/watchme-logo.svg';
 import './styles.scss';
-import { useLogin } from '../../api/client';
 
 export interface IInputs {
   email: string,
@@ -18,21 +20,32 @@ const schema = yup.object().shape({
 
 export function SignIn() {
   const { register, handleSubmit, formState: { errors } } = useForm<IInputs>({resolver: yupResolver(schema)});
-  const { mutateAsync: handleLogin, isLoading: isLoadingLogin } = useLogin();
+  const { mutateAsync: handleLogin, isLoading: isLoadingLogin, error } = useLogin();
+  const navigate = useNavigate();
+
+  const login = useCallback( async(data: any) => {
+    try {
+      const token = await handleLogin(data);
+
+      localStorage.setItem('token', JSON.stringify({
+        token: token.data.token,
+      }));
+
+      navigate('/home');
+
+      return;
+    } catch (err) {
+      toast.error('Email e/ou senha inválidos.');
+      return undefined;
+    }
+  }, []);
 
   const onSubmit: SubmitHandler<IInputs> = async (data) => {
-    try {
-      console.log(data);
-      handleLogin(data);
-      toast.success('Check');
-    } catch (error) {
-      console.log(error);
-      toast.error('Email e/ou senha inválidos');
-    }
+    await login(data);
   };
 
   return (
-    <div className='container'>
+    <div className='container-login'>
       <div className='logo-container'>
         <img src={Logo} alt="Logo Watch Me" />
         <h1>Watch Me</h1>
@@ -42,12 +55,12 @@ export function SignIn() {
           <h2>Login</h2>
           <div className='form-input'>
             <input 
-              // className={error && 'red'}
+              className={error ? 'red' : ''}
               placeholder='E-mail*' 
               {...register("email", {required: true})}
             />
             <input
-              // className={error && 'red'} 
+              className={error ? 'red' : ''} 
               type='password'
               placeholder='Senha*'
               {...register("password", {required: true})}
