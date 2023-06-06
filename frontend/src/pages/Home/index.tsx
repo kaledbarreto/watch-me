@@ -2,6 +2,9 @@ import './styles.scss';
 import Logo from '../../assets/watchme-logo.svg';
 import Logout from '../../assets/logout.svg';
 import { StreamingList } from '../../components/StreamingList';
+import { AddStreamingModal } from '../../components/AddStramingModal';
+import { AddStreamingSerie } from '../../components/AddStramingSerie';
+import { EditStreamingSerie } from '../../components/EditStreamingModal';
 
 export function Home() {
   return (
@@ -16,6 +19,10 @@ export function Home() {
       <StreamingList title='Netflix 1'/>
       <StreamingList title='Netflix 2'/>
       <StreamingList title='Netflix 3'/>
+      {/* <AddStreamingModal/> */}
+      {/* <AddStreamingSerie/> */}
+      {/* <EditStreamingSerie/> */}
+      <EditStreamingSerie/>
     </div>
   );
 }
