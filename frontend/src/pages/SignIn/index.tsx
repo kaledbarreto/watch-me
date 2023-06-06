@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import * as yup from 'yup';
 import Logo from '../../assets/watchme-logo.svg';
 import './styles.scss';
+import { useLogin } from '../../api/client';
 
 export interface IInputs {
   email: string,
@@ -17,11 +18,17 @@ const schema = yup.object().shape({
 
 export function SignIn() {
   const { register, handleSubmit, formState: { errors } } = useForm<IInputs>({resolver: yupResolver(schema)});
+  const { mutateAsync: handleLogin, isLoading: isLoadingLogin } = useLogin();
 
   const onSubmit: SubmitHandler<IInputs> = async (data) => {
-    console.log(data);
-    toast.success('Check');
-    // toast.error('Email e/ou senha inválidos');
+    try {
+      console.log(data);
+      handleLogin(data);
+      toast.success('Check');
+    } catch (error) {
+      console.log(error);
+      toast.error('Email e/ou senha inválidos');
+    }
   };
 
   return (

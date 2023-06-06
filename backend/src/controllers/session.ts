@@ -10,8 +10,10 @@ const generateToken = (id: string): string => {
 const auth = async (req: Request, res: Response): Promise<Response> => {
   const { email, password } = req.body;
 
+  console.log({ email, password });
+
   if (!email || !password) {
-    return res.status(400).json({ message: "Bad Request" });
+    return res.status(400).json({ message: "Bad Request 2" });
   }
 
   const user = await User.getByEmail(email);
