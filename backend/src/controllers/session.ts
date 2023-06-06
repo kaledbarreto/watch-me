@@ -10,10 +10,8 @@ const generateToken = (id: string): string => {
 const auth = async (req: Request, res: Response): Promise<Response> => {
   const { email, password } = req.body;
 
-  console.log({ email, password });
-
   if (!email || !password) {
-    return res.status(400).json({ message: "Bad Request 2" });
+    return res.status(400).json({ message: "Bad Request 🦆" });
   }
 
   const user = await User.getByEmail(email);
@@ -26,7 +24,7 @@ const auth = async (req: Request, res: Response): Promise<Response> => {
 
   const token = generateToken(user.id);
 
-  return res.status(200).json({ token });
+  return res.status(200).json({ id: user.id, token });
 };
 
 export default { auth, generateToken };
