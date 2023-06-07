@@ -25,13 +25,14 @@ export function SignIn() {
 
   const login = useCallback( async(data: any) => {
     try {
-      const token = await handleLogin(data);
+      const user = await handleLogin(data);
 
-      localStorage.setItem('token', JSON.stringify({
-        token: token.data.token,
+      localStorage.setItem('user', JSON.stringify({
+        token: user.data.token,
+        id: user.data.id,
       }));
 
-      navigate('/home');
+      navigate('/');
 
       return;
     } catch (err) {
