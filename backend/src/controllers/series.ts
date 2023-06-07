@@ -32,7 +32,12 @@ const create = async (req: Request, res: Response) => {
     return res.status(400).json({ message: "Bad Request" });
   }
 
-  const series = await Series.save(name);
+  const series = await Series.save({
+    name,
+    description,
+    image_url,
+    platform_id,
+  });
 
   return res.status(201).json(series);
 };

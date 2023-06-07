@@ -1,15 +1,18 @@
 import { Router } from "express";
 import platform from "../controllers/platform";
+import series from "../controllers/series";
 import auth from "../middleware/auth";
 
-const usersRouter = Router();
+const platformRouter = Router();
 
-usersRouter.get("/", auth.verify, platform.getAll);
+platformRouter.get("/", auth.verify, platform.getAll);
 
-usersRouter.post("/create", auth.verifyAdmin, platform.create);
+platformRouter.get("/:platform_id", auth.verify, series.getAllOnPlatform);
 
-usersRouter.put("/edit/:id", auth.verifyAdmin, platform.update);
+platformRouter.post("/create", auth.verifyAdmin, platform.create);
 
-usersRouter.delete("/delete/:id", auth.verifyAdmin, platform.remove);
+platformRouter.put("/edit/:id", auth.verifyAdmin, platform.update);
 
-export default usersRouter;
+platformRouter.delete("/delete/:id", auth.verifyAdmin, platform.remove);
+
+export default platformRouter;
