@@ -1,10 +1,13 @@
 import { Router } from "express";
 import session from "../controllers/session";
 import platformRouter from "./platform";
+import serieRouter from "./series";
 import usersRouter from "./users";
 
 import swaggerJsdoc from "swagger-jsdoc";
 import swaggerUi from "swagger-ui-express";
+import favorites from "../controllers/favorites";
+import auth from "../middleware/auth";
 
 const swaggerOptions = {
   definition: {
@@ -36,14 +39,12 @@ routes.use("/user", usersRouter);
 
 routes.use("/platform", platformRouter);
 
-routes.post("/serie", (req, res) => {
-  res.status(503).send("Not implemented 🦆");
-});
+routes.use("/serie", serieRouter);
 
-routes.post("/serie", (req, res) => {
-  res.status(503).send("Not implemented 🦆");
-});
+routes.get("/favorites", auth.verify, favorites.getFavorites);
 
-// routes.get("/logout", (req, res) => {});
+routes.post("/favorite/:serie_id", auth.verify, favorites.favorite);
+
+routes.post("/unfavorite/:serie_id", auth.verify, favorites.unfavorite);
 
 export default routes;

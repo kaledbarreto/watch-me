@@ -2,16 +2,14 @@ import { Router } from "express";
 import serie from "../controllers/series";
 import auth from "../middleware/auth";
 
-const usersRouter = Router();
+const seriesRouter = Router();
 
-usersRouter.get("/:id", auth.verify, serie.getSerieDetailed);
+seriesRouter.get("/:id", auth.verify, serie.getSerieDetailed);
 
-usersRouter.get("/platform/:platform_id", auth.verify, serie.getAllOnPlatform);
+seriesRouter.post("/create", auth.verifyAdmin, serie.create);
 
-usersRouter.post("/create", auth.verifyAdmin, serie.create);
+seriesRouter.put("/edit/:id", auth.verifyAdmin, serie.update);
 
-usersRouter.put("/edit/:id", auth.verifyAdmin, serie.update);
+seriesRouter.delete("/delete/:id", auth.verifyAdmin, serie.remove);
 
-usersRouter.delete("/delete/:id", auth.verifyAdmin, serie.remove);
-
-export default usersRouter;
+export default seriesRouter;

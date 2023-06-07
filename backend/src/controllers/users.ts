@@ -23,10 +23,4 @@ const create = async (req: Request, res: Response) => {
   return res.status(201).json({ user, token });
 };
 
-const favorite = async (req: Request, res: Response) => {};
-
-const unfavorite = async (req: Request, res: Response) => {};
-
-const getFavorites = async (req: Request, res: Response) => {};
-
 export default { create };

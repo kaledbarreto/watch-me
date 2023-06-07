@@ -22,7 +22,7 @@ const getById = async (id: string) => {
     id,
   ]);
 
-  return result;
+  return result[0];
 };
 
 const save = async (serie: Series) => {
