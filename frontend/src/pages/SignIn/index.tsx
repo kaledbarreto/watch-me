@@ -19,8 +19,8 @@ const schema = yup.object().shape({
 });
 
 export function SignIn() {
-  const { register, handleSubmit, formState: { errors } } = useForm<IInputs>({resolver: yupResolver(schema)});
-  const { mutateAsync: handleLogin, isLoading: isLoadingLogin, error } = useLogin();
+  const { register, handleSubmit } = useForm<IInputs>({resolver: yupResolver(schema)});
+  const { mutateAsync: handleLogin, error } = useLogin();
   const navigate = useNavigate();
 
   const login = useCallback( async(data: any) => {
@@ -45,15 +45,15 @@ export function SignIn() {
   };
 
   return (
-    <div className='container-login'>
-      <div className='logo-container'>
+    <div className='login_container'>
+      <div className='login_logo'>
         <img src={Logo} alt="Logo Watch Me" />
         <h1>Watch Me</h1>
       </div>
-      <form className='form' onSubmit={handleSubmit(onSubmit)}>
-          <div className='form-container'>
+      <form className='login_form' onSubmit={handleSubmit(onSubmit)}>
+        <div className='login_form_content'>
           <h2>Login</h2>
-          <div className='form-input'>
+          <div className='login_form_input'>
             <input 
               className={error ? 'red' : ''}
               placeholder='E-mail*' 
@@ -66,12 +66,12 @@ export function SignIn() {
               {...register("password", {required: true})}
             />
           </div>
-          <div className='form-button'>
+          <div className='login_form_button'>
             <button type='submit'>Entrar</button>
-            <a className='text-link' href="mailto:no-reply@watchme.com?subject=Suporte&body=Tive problema no login e gostaria de tirar dúvida sobre...">Precisa de Ajuda?</a>
+            <a className='login_text_link' href="mailto:no-reply@watchme.com?subject=Suporte&body=Tive problema no login e gostaria de tirar dúvida sobre...">Precisa de Ajuda?</a>
           </div>
         </div>
-        <a className='text-link' href="/cadastro">Não tem uma conta? <strong>Cadastre-se</strong></a>
+        <a className='login_text_link' href="/cadastro">Não tem uma conta? <strong>Cadastre-se</strong></a>
       </form>
     </div>
   );
