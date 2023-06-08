@@ -42,7 +42,7 @@ export function useGetOnePlataform() {
 
 export function useAddPlatform() {
   return useMutation(['handleAddPlatform'], async (data: any) =>
-    await api.put(`/platform/create`, { ...data})
+    await api.post(`/platform/create`, { ...data})
   );
 }
 

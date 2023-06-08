@@ -5,6 +5,7 @@ import Logo from '../../assets/watchme-logo.svg';
 import { LogoutModal } from '../../components/LogoutModal';
 import { StreamingList } from '../../components/StreamingList';
 import './styles.scss';
+import { AddStreaming } from '../../components/AddStreamingModal';
 
 export function Home() {
   const { mutateAsync: handleGetPlatform } = useGetPlatform();
@@ -43,6 +44,7 @@ export function Home() {
         <StreamingList datasource={streaming}/>
       ))}
       {openDrawerLogout && <LogoutModal setOpenDrawerLogout={setOpenDrawerLogout}/>}
+      {openDrawerAddStreaming && <AddStreaming setOpenDrawerAddStreaming={setOpenDrawerAddStreaming} setData={setData}/>}
     </div>
   );
 }
