@@ -16,7 +16,7 @@ export function StreamingList({datasource}: IStreamingSmallList) {
   const getOnePlatform = useCallback( async(data: any) => {
     try {
       const platform = await handleGetOnePlatform(data);
-      setData(platform.data);
+      setData(platform.data.series);
       return;
     } catch (err) {
       console.log('err: ', err);
@@ -32,7 +32,7 @@ export function StreamingList({datasource}: IStreamingSmallList) {
     <div className="streaming_container">
       <div className="straming_header">
         <h3>{datasource?.name}</h3>
-        <h4 onClick={() => navigate(`/streaming/${datasource?.name}/${datasource?.id}`)}>Ver mais</h4>
+        <h4 onClick={() => navigate(`/streaming/${datasource?.id}`)}>Ver mais</h4>
       </div>
       <div className="streaming_cards">
         {data && data.map((serie: any) => (

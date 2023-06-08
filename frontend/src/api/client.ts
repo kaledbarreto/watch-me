@@ -48,6 +48,6 @@ export function useEditPlatform() {
 
 export function useDeletePlatform() {
   return useMutation(['handleDeletePlatform'], async (id: any) =>
-    await api.delete(`/platform/edit/${id}`)
+    await api.delete(`/platform/delete/${id}`)
   );
 }

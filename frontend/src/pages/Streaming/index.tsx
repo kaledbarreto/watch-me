@@ -10,7 +10,7 @@ import './styles.scss';
 import toast from 'react-hot-toast';
 
 export function StreamingDetails() {
-  const { id, title } = useParams<{ id: string, title: string }>();
+  const { id } = useParams<{ id: string, title: string }>();
   const { mutateAsync: handleGetOnePlatform } = useGetOnePlataform();
   const { mutateAsync: handleEditPlatform } = useEditPlatform();
   const { mutateAsync: handleDeletePlatform } = useDeletePlatform();
@@ -30,20 +30,10 @@ export function StreamingDetails() {
     }
   }, []);
 
-  // console.log(id);
-  const navigate = useNavigate();
-
-  function letItGo(data: any){
-    navigate(`/streaming/${data.data.name}/${id}`);
-  }
-
   const editPlatform = useCallback( async({id, data} : any) => {
-    
     try {
-      const platform = await handleEditPlatform({id, data});
-      console.log(platform);
+      await handleEditPlatform({id, data});
       toast.success('Plataforma editada com sucesso!');
-      letItGo(data);
       return;
     } catch (err) {
       console.log('err: ', err);
@@ -53,16 +43,14 @@ export function StreamingDetails() {
   }, []);
 
   const deletePlatform = useCallback( async(id: any) => {
-    
     try {
-      const platform = await handleEditPlatform({id, data});
+      const platform = await handleDeletePlatform(id);
       console.log(platform);
-      toast.success('Plataforma editada com sucesso!');
-      letItGo(data);
+      toast.success('Plataforma deletado com sucesso!');
       return;
     } catch (err) {
       console.log('err: ', err);
-      toast.error('Erro ao editar plataforma.');
+      toast.error('Erro ao deletar plataforma.');
       return undefined;
     }
   }, []);
@@ -76,16 +64,16 @@ export function StreamingDetails() {
       <div className='streaming_details_heading'>
         <div className="streaming_details_back_title">
           <img src={backArrow} alt="Voltar" />
-          <h3>{title}</h3>
+          {data && <h3>{data?.platform.name}</h3>}
         </div>
         <div className='streaming_details_group'>
           {isAdmin() && (
             <div className='streaming_details_admin_group'>
               <button className='streaming_details_admin_add_serie'>Adicionar Serie</button>
-              <div className='streaming_details_button'>
+              <div className='streaming_details_button' onClick={() => deletePlatform(id)}>
                 <img src={Trash} alt="Editar" />
               </div>
-              <div className='streaming_details_button' onClick={() => editPlatform({id, data: {name: 'zzzz'}})}>
+              <div className='streaming_details_button' onClick={() => editPlatform({id, data: {name: 'Netflix6'}})}>
                 <img src={Edit} alt="Editar" />
               </div>
             </div>
@@ -96,7 +84,7 @@ export function StreamingDetails() {
         </div>
       </div>
       <div className="streaming_details_cards">
-        {data && data.map((serie: any) => (
+        {data && data.series.map((serie: any) => (
           <Card datasource={serie}/>
         ))}
       </div>
