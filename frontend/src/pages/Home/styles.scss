@@ -1,24 +1,24 @@
 @use "../../styles/colors.scss" as colors;
 
-.container {
+.home_container {
   width: 100%;
   height: 100%;
   padding: 64px;
   background-color: colors.$blue-zodiac;
 }
 
-.header {
+.home_header {
   width: 100%;
   display: flex;
   align-items: center;
   gap: 64px;
 
-  .logo {
+  .home_logo {
     width: 128px;
     height: 128px;
   }
 
-  input {
+  .home_input {
     width: 100%;
     height: 64px;
     padding: 12px 16px;
@@ -33,14 +33,31 @@
     color: #44475A;
   }
 
-  .logout {
+  .home_header_buttons {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 16px;
+    font-weight: 600;
 
-    cursor: pointer;
-    background-color: colors.$black-rock;
-    padding: 16px;
-    border-radius: 50%;
+    .home_logout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      cursor: pointer;
+      background-color: colors.$black-rock;
+      padding: 16px;
+      border-radius: 50%;
+    }
+  
+    .home_admin_add_platform {
+      all: unset;
+      cursor: pointer;
+      width: 152px;
+      padding: 16px;
+      background: #BD93F9;
+      border-radius: 20px;
+      text-align: center;
+    }
   }
 }
+

@@ -1,34 +1,18 @@
-import React, { useState } from 'react';
+import { logout } from '../../api/client';
 import './styles.scss';
 
-export function Logout({ isOpen, onClose }: any) {
-  const [inputValue, setInputValue] = useState('');
-
-  const handleInputChange = (event: any) => {
-    setInputValue(event.target.value);
-  };
-
-  const handleSubmit = () => {
-    // Lógica para enviar o valor do input
-    console.log('Valor do input:', inputValue);
-    onClose();
-  };
-
+export function LogoutModal({ setOpenDrawerLogout }: any) {
   const handleCancel = () => {
-    onClose();
+    setOpenDrawerLogout(false);
   };
-
-  if (isOpen) {
-    return null;
-  }
 
   return (
     <div className="modal-backdrop">
       <div className="modal-card">
         <h1>Tem certeza que deseja sair?</h1>
         <div className="modal-buttons">
-          <button className="send" onClick={handleSubmit}>Enviar</button>
           <button className="cancel" onClick={handleCancel}>Cancelar</button>
+          <button className="send" onClick={logout}>Sair</button>
         </div>
       </div>
     </div>
