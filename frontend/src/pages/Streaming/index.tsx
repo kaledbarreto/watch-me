@@ -1,19 +1,18 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { isAdmin, useDeletePlatform, useEditPlatform, useGetOnePlataform } from '../../api/client';
+import { useParams } from 'react-router-dom';
+import { isAdmin, useGetOnePlataform } from '../../api/client';
 import backArrow from '../../assets/back-arrow.svg';
 import Edit from '../../assets/edit.svg';
 import Trash from '../../assets/trash.svg';
 import { Card } from '../../components/Card';
+import { DeleteModal } from '../../components/DeleteModal';
+import { EditStreaming } from '../../components/EditStreamingModal';
 import { LogoutModal } from '../../components/LogoutModal';
 import './styles.scss';
-import toast from 'react-hot-toast';
-import { EditStreaming } from '../../components/EditStreamingModal';
 
 export function StreamingDetails() {
   const { id } = useParams<{ id: string, title: string }>();
   const { mutateAsync: handleGetOnePlatform } = useGetOnePlataform();
-  const { mutateAsync: handleDeletePlatform } = useDeletePlatform();
   const [data, setData] = useState<any>('');
   const [openDrawerLogout, setOpenDrawerLogout] = useState<boolean>(false);
   const [openDrawerEdit, setOpenDrawerEdit] = useState<boolean>(false);
@@ -26,19 +25,6 @@ export function StreamingDetails() {
       return;
     } catch (err) {
       console.log('err: ', err);
-      return undefined;
-    }
-  }, []);
-
-  const deletePlatform = useCallback( async(id: any) => {
-    try {
-      const platform = await handleDeletePlatform(id);
-      console.log(platform);
-      toast.success('Plataforma deletado com sucesso!');
-      return;
-    } catch (err) {
-      console.log('err: ', err);
-      toast.error('Erro ao deletar plataforma.');
       return undefined;
     }
   }, []);
@@ -58,7 +44,7 @@ export function StreamingDetails() {
           {isAdmin() && (
             <div className='streaming_details_admin_group'>
               <button className='streaming_details_admin_add_serie'>Adicionar Serie</button>
-              <div className='streaming_details_button' onClick={() => deletePlatform(id)}>
+              <div className='streaming_details_button' onClick={() => setOpenDrawerDelete(true)}>
                 <img src={Trash} alt="Editar" />
               </div>
               <div className='streaming_details_button' onClick={() => setOpenDrawerEdit(true)}>
@@ -78,6 +64,7 @@ export function StreamingDetails() {
       </div>
       {openDrawerLogout && <LogoutModal setOpenDrawerLogout={setOpenDrawerLogout}/>}
       {openDrawerEdit && <EditStreaming setOpenDrawerEdit={setOpenDrawerEdit} id={id} setData={setData}/>}
+      {openDrawerDelete && <DeleteModal setOpenDrawerDelete={setOpenDrawerDelete} id={id}/>}
     </div>
   );
 }

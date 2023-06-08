@@ -2,13 +2,12 @@ import { useCallback, useEffect, useState } from 'react';
 import { isAdmin, useGetPlatform } from '../../api/client';
 import Logout from '../../assets/logout.svg';
 import Logo from '../../assets/watchme-logo.svg';
-import { AddStreamingModal } from '../../components/AddStramingModal';
 import { LogoutModal } from '../../components/LogoutModal';
 import { StreamingList } from '../../components/StreamingList';
 import './styles.scss';
 
 export function Home() {
-  const { mutateAsync: handleGetPlatform, error } = useGetPlatform();
+  const { mutateAsync: handleGetPlatform } = useGetPlatform();
   const [data, setData] = useState<any>('');
   const [openDrawerLogout, setOpenDrawerLogout] = useState<boolean>(false);
   const [openDrawerAddStreaming, setOpenDrawerAddStreaming]= useState<boolean>(false);
@@ -44,7 +43,6 @@ export function Home() {
         <StreamingList datasource={streaming}/>
       ))}
       {openDrawerLogout && <LogoutModal setOpenDrawerLogout={setOpenDrawerLogout}/>}
-      {openDrawerAddStreaming && <AddStreamingModal/>}
     </div>
   );
 }
