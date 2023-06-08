@@ -28,9 +28,9 @@ const update = async (req: Request, res: Response) => {
     return res.status(400).json({ message: "Bad Request" });
   }
 
-  const platform = await Platform.update(id, name);
+  await Platform.update(id, name);
 
-  return res.status(200).json(platform);
+  return res.status(200).json({ id, name });
 };
 
 const remove = async (req: Request, res: Response) => {

@@ -6,9 +6,15 @@ import Series from "../model/series";
 const getAllOnPlatform = async (req: Request, res: Response) => {
   const { platform_id } = req.params;
 
-  const emailRegistered = await Series.getAllByPlatform(platform_id);
+  const platform = await Platform.getById(platform_id);
 
-  return res.status(200).json(emailRegistered);
+  if (!platform) {
+    return res.status(400).json({ message: "Bad Request" });
+  }
+
+  const series = await Series.getAllByPlatform(platform.id);
+
+  return res.status(200).json({ platform, series });
 };
 
 const getSerieDetailed = async (req: Request, res: Response) => {
