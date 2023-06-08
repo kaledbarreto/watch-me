@@ -34,7 +34,7 @@ export function MainRoutes() {
             <Home/>
           </AuthenticatedRoute>
         )} />
-        <Route path="/streaming-details" element={<StreamingDetails title="Netflix"/>}/>  
+        <Route path="/streaming/:title/:id" element={<StreamingDetails />}/>  
       </Routes>
     </BrowserRouter>
   )

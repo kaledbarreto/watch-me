@@ -1,11 +1,9 @@
 @use "../../styles/colors.scss" as colors;
 
-.container_straming_details {
+.streaming_details_container {
   width: 100%;
-  min-height: 100%;
-
+  min-height: 100vh;
   padding: 64px;
-
   background-color: colors.$blue-zodiac;
 
   display: flex;
@@ -14,14 +12,27 @@
   gap: 64px;
 }
 
-.details_heading {
+.streaming_details_heading {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.logout {
+.streaming_details_back_title {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  h3 {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 32px;
+    color: colors.$ivory;
+  }
+}
+
+.streaming_details_button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,25 +43,30 @@
   border-radius: 50%;
 }
 
-.straming_details_list_title {
-  display: flex;
-  align-items: center;
-  gap: 32px;
 
-  h3 {
-    font-weight: 500;
-    font-size: 48px * 1.5;
-    line-height: 32px * 1.5;
-    color: colors.$ivory;
-  }
-}
 
-.details_cards_container {
+.streaming_details_cards {
   width: 100%;
   padding: 16px;
 
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  gap: 16px;
+}
+
+.streaming_details_admin_add_serie {
+  all: unset;
+  cursor: pointer;
+  width: 152px;
+  padding: 16px;
+  background: #BD93F9;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.streaming_details_admin_group, .streaming_details_group {
+  display: flex;
+  align-items: center;
   gap: 16px;
 }
