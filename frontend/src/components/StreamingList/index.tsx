@@ -2,15 +2,14 @@ import { Card } from "../Card";
 import './styles.scss';
 
 interface IStreamingSmallList {
-  title: string;
-  datasource?: any[];
+  datasource: any;
 }
 
-export function StreamingList({title, datasource}: IStreamingSmallList) {
+export function StreamingList({datasource}: IStreamingSmallList) {
   return (
     <div className="container_small">
       <div className="straming_list_header">
-        <h3>{title}</h3>
+        <h3>{datasource?.name}</h3>
         <h4>Ver mais</h4>
       </div>
       {/* Implementar map aqui */}

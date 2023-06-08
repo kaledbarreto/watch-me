@@ -15,7 +15,6 @@ export function Home() {
   const [data, setData] = useState<any>('');
   const [openDrawerLogout, setOpenDrawerLogout] = useState<boolean>(false);
   const [openDrawerAddStreaming, setOpenDrawerAddStreaming]= useState<boolean>(false);
-  const navigate = useNavigate();
 
   const getAllPlatform = useCallback(async () => {
     try {
@@ -32,8 +31,6 @@ export function Home() {
     getAllPlatform();
   }, []);
 
-
-
   return (
     <div className='home_container'>
       <div className='home_header'>
@@ -46,14 +43,11 @@ export function Home() {
           </div>
         </div>
       </div>
-      <StreamingList title='Netflix 1'/>
-      <StreamingList title='Netflix 2'/>
-      <StreamingList title='Netflix 3'/>
+      {data && data.map((streaming: any) => (
+        <StreamingList datasource={streaming}/>
+      ))}
       {openDrawerLogout && <LogoutModal setOpenDrawerLogout={setOpenDrawerLogout}/>}
       {openDrawerAddStreaming && <AddStreamingModal/>}
-      {/* <AddStreamingSerie/> */}
-      {/* <EditStreamingSerie/> */}
-      {/* <EditStreamingSerie/> */}
     </div>
   );
 }
