@@ -9,3 +9,19 @@ html, body {
   width: 100%;
   min-height: 100%;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #44475A; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #282A36; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #303341;; 
+}
