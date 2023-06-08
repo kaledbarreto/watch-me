@@ -1,6 +1,6 @@
 @use "../../styles/colors.scss" as colors;
 
-.container_small {
+.streaming_container {
   width: 100%;
 
   display: flex;
@@ -9,7 +9,7 @@
   flex-direction: column;
 }
 
-.straming_list_header {
+.straming_header {
   width: 100%;
   display: flex;
   align-items: center;
@@ -31,12 +31,12 @@
   }
 }
 
-.cards_container {
+.streaming_cards {
   width: 100%;
   padding: 16px;
 
   display: flex;
   flex-direction: row;
-  // flex-wrap: wrap;
+  overflow: hidden;
   gap: 16px;
 }

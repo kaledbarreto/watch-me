@@ -28,3 +28,9 @@ export function useGetPlatform() {
     await api.get('/platform')
   );
 }
+
+export function useGetOnePlataform() {
+  return useMutation(['handleGetOnePlatform'], async (id: any) => 
+    await api.get(`/platform/${id}`)
+  );
+}
