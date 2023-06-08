@@ -1,14 +1,11 @@
-import './styles.scss';
-import Logo from '../../assets/watchme-logo.svg';
-import Logout from '../../assets/logout.svg';
-import { StreamingList } from '../../components/StreamingList';
-import { AddStreamingModal } from '../../components/AddStramingModal';
-import { AddStreamingSerie } from '../../components/AddStramingSerie';
-import { EditStreamingSerie } from '../../components/EditStreamingModal';
-import { isAdmin, logout, useGetPlatform } from '../../api/client';
-import { useNavigate } from 'react-router-dom';
 import { useCallback, useEffect, useState } from 'react';
+import { isAdmin, useGetPlatform } from '../../api/client';
+import Logout from '../../assets/logout.svg';
+import Logo from '../../assets/watchme-logo.svg';
+import { AddStreamingModal } from '../../components/AddStramingModal';
 import { LogoutModal } from '../../components/LogoutModal';
+import { StreamingList } from '../../components/StreamingList';
+import './styles.scss';
 
 export function Home() {
   const { mutateAsync: handleGetPlatform, error } = useGetPlatform();

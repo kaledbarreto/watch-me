@@ -8,11 +8,11 @@ import { Card } from '../../components/Card';
 import { LogoutModal } from '../../components/LogoutModal';
 import './styles.scss';
 import toast from 'react-hot-toast';
+import { EditStreaming } from '../../components/EditStreamingModal';
 
 export function StreamingDetails() {
   const { id } = useParams<{ id: string, title: string }>();
   const { mutateAsync: handleGetOnePlatform } = useGetOnePlataform();
-  const { mutateAsync: handleEditPlatform } = useEditPlatform();
   const { mutateAsync: handleDeletePlatform } = useDeletePlatform();
   const [data, setData] = useState<any>('');
   const [openDrawerLogout, setOpenDrawerLogout] = useState<boolean>(false);
@@ -26,18 +26,6 @@ export function StreamingDetails() {
       return;
     } catch (err) {
       console.log('err: ', err);
-      return undefined;
-    }
-  }, []);
-
-  const editPlatform = useCallback( async({id, data} : any) => {
-    try {
-      await handleEditPlatform({id, data});
-      toast.success('Plataforma editada com sucesso!');
-      return;
-    } catch (err) {
-      console.log('err: ', err);
-      toast.error('Erro ao editar plataforma.');
       return undefined;
     }
   }, []);
@@ -73,7 +61,7 @@ export function StreamingDetails() {
               <div className='streaming_details_button' onClick={() => deletePlatform(id)}>
                 <img src={Trash} alt="Editar" />
               </div>
-              <div className='streaming_details_button' onClick={() => editPlatform({id, data: {name: 'Netflix6'}})}>
+              <div className='streaming_details_button' onClick={() => setOpenDrawerEdit(true)}>
                 <img src={Edit} alt="Editar" />
               </div>
             </div>
@@ -89,6 +77,7 @@ export function StreamingDetails() {
         ))}
       </div>
       {openDrawerLogout && <LogoutModal setOpenDrawerLogout={setOpenDrawerLogout}/>}
+      {openDrawerEdit && <EditStreaming setOpenDrawerEdit={setOpenDrawerEdit} id={id} setData={setData}/>}
     </div>
   );
 }
