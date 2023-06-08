@@ -1,5 +1,10 @@
-import { useMutation } from "react-query"
-import { api } from "."
+import { useMutation } from "react-query";
+import { api } from ".";
+
+// export interface IEditPlatform {
+//   id: string,
+//   data: any,
+// }
 
 export function useRegistration() {
   return useMutation(['handleRegistration'], async (data: any) =>
@@ -32,5 +37,17 @@ export function useGetPlatform() {
 export function useGetOnePlataform() {
   return useMutation(['handleGetOnePlatform'], async (id: any) => 
     await api.get(`/platform/${id}`)
+  );
+}
+
+export function useEditPlatform() {
+  return useMutation(['handleEditPlatform'], async (data: any) =>
+    await api.put(`/platform/edit/${data.id}`, { ...data.data})
+  );
+}
+
+export function useDeletePlatform() {
+  return useMutation(['handleDeletePlatform'], async (id: any) =>
+    await api.delete(`/platform/edit/${id}`)
   );
 }
