@@ -2,10 +2,12 @@ import './styles.scss';
 import Heart from '../../assets/heart.svg';
 import { useState } from 'react';
 import { GetSerieModal } from '../GetSerieModal';
+import { EditSerie } from '../EditSerieModal';
 
 export function Card(datasource: any) {
   const [imageError, setImageError] = useState(false);
   const [openDrawerSerie, setOpenDrawerSerie] = useState<boolean>(false);
+  const [openDrawerSerieEdit, setOpenDrawerSerieEdit] = useState<boolean>(false);
 
   const handleImageError = () => {
     setImageError(true);
@@ -29,7 +31,8 @@ export function Card(datasource: any) {
           {datasource.datasource.name}
         </span>
       </div>
-      {openDrawerSerie && <GetSerieModal handleCancel={handleCancel} datasource={datasource.datasource}/>}
+      {openDrawerSerie && <GetSerieModal handleCancel={handleCancel} setOpenDrawerSerieEdit={setOpenDrawerSerieEdit} datasource={datasource.datasource}/>}
+      {openDrawerSerieEdit && <EditSerie setOpenDrawerSerieEdit={setOpenDrawerSerieEdit} id={datasource.datasource.id}/>}
     </div>
   );
 }

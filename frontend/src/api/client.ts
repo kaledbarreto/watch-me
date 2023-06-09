@@ -57,3 +57,21 @@ export function useDeletePlatform() {
     await api.delete(`/platform/delete/${id}`)
   );
 }
+
+export function useAddSerie() {
+  return useMutation(['handleAddSerie'], async (data: any) =>
+    await api.post(`/serie/create`, { ...data})
+  );
+}
+
+export function useEditSerie() {
+  return useMutation(['handleEditSerie'], async (data: any) =>
+    await api.put(`/serie/edit/${data.id}`, { ...data.data})
+  );
+}
+
+export function useDeleteSerie() {
+  return useMutation(['handleDeleteSerie'], async (id: any) =>
+    await api.delete(`/serie/delete/${id}`)
+  );
+}
