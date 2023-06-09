@@ -17,10 +17,14 @@
 
   position: relative;
 
-  .film-image {
-    width: 120px * 1.5;
-    height: 120px * 1.5;
-    border-radius: 10px * 1.5;
+  .card_image_container {
+    object-fit: cover;
+
+    .film-image {
+      width: 120px * 1.5;
+      height: 120px * 1.5;
+      border-radius: 10px * 1.5;
+    }
   }
 
   .heart {

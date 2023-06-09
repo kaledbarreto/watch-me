@@ -21,11 +21,13 @@ export function Card(datasource: any) {
   return (
     <div className="container-card" onClick={() => setOpenDrawerSerie(true)}>
       <img className='heart' src={Heart} alt="Like" />
-      {!imageError ? (
-        <img className='film-image' src={datasource.datasource.image_url} onError={handleImageError} alt={datasource.datasource.name} />
-      ) : (
-        <img className='film-image' src={'https://fakeimg.pl/240x240?text=;-;'} alt="Placeholder" />
-      )}
+      <div className='card_image_container'>
+        {!imageError ? (
+          <img className='film-image' src={datasource.datasource.image_url} onError={handleImageError} alt={datasource.datasource.name} />
+        ) : (
+          <img className='film-image' src={'https://fakeimg.pl/240x240?text=;-;'} alt="Placeholder" />
+        )}
+      </div>
       <div className='film-title'>
         <span>
           {datasource.datasource.name}
