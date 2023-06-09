@@ -9,6 +9,7 @@ import { DeleteModal } from '../../components/DeleteModal';
 import { EditStreaming } from '../../components/EditStreamingModal';
 import { LogoutModal } from '../../components/LogoutModal';
 import './styles.scss';
+import { AddSerie } from '../../components/AddSerieModal';
 
 export function StreamingDetails() {
   const { id } = useParams<{ id: string, title: string }>();
@@ -17,6 +18,7 @@ export function StreamingDetails() {
   const [openDrawerLogout, setOpenDrawerLogout] = useState<boolean>(false);
   const [openDrawerEdit, setOpenDrawerEdit] = useState<boolean>(false);
   const [openDrawerDelete, setOpenDrawerDelete] = useState<boolean>(false);
+  const [openDrawerAddSerie, setOpenDrawerAddSerie] = useState<boolean>(false);
 
   const getOnePlatform = useCallback( async(data: any) => {
     try {
@@ -43,9 +45,9 @@ export function StreamingDetails() {
         <div className='streaming_details_group'>
           {isAdmin() && (
             <div className='streaming_details_admin_group'>
-              <button className='streaming_details_admin_add_serie'>Adicionar Serie</button>
+              <button className='streaming_details_admin_add_serie' onClick={() => setOpenDrawerAddSerie(true)}>Adicionar Serie</button>
               <div className='streaming_details_button' onClick={() => setOpenDrawerDelete(true)}>
-                <img src={Trash} alt="Editar" />
+                <img src={Trash} alt="Excluir" />
               </div>
               <div className='streaming_details_button' onClick={() => setOpenDrawerEdit(true)}>
                 <img src={Edit} alt="Editar" />
@@ -65,6 +67,7 @@ export function StreamingDetails() {
       {openDrawerLogout && <LogoutModal setOpenDrawerLogout={setOpenDrawerLogout}/>}
       {openDrawerEdit && <EditStreaming setOpenDrawerEdit={setOpenDrawerEdit} id={id} setData={setData}/>}
       {openDrawerDelete && <DeleteModal setOpenDrawerDelete={setOpenDrawerDelete} id={id}/>}
+      {openDrawerAddSerie && <AddSerie setOpenDrawerAddSerie={setOpenDrawerAddSerie} id={id} setData={setData}/>}
     </div>
   );
 }
