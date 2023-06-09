@@ -11,9 +11,10 @@ interface IGetSerieModalProps {
   handleCancel: () => void;
   datasource: any;
   setOpenDrawerSerieEdit: any;
+  setOpenDrawerSerieDelete: any;
 };
 
-export function GetSerieModal({ handleCancel, setOpenDrawerSerieEdit, datasource }: IGetSerieModalProps) {
+export function GetSerieModal({ handleCancel, setOpenDrawerSerieEdit, setOpenDrawerSerieDelete, datasource }: IGetSerieModalProps) {
   const [imageError, setImageError] = useState(false);
 
   const handleImageError = () => {
@@ -23,6 +24,11 @@ export function GetSerieModal({ handleCancel, setOpenDrawerSerieEdit, datasource
   const handleOpenEdit = () => {
     // handleCancel(); --> Por causa do outro bug tive q por um modal em cima do outro já que o outro n fecha normalmente :p
     setOpenDrawerSerieEdit(true);
+  }
+
+  const handleOpenDelete = () => {
+    // handleCancel(); --> Por causa do outro bug tive q por um modal em cima do outro já que o outro n fecha normalmente :p
+    setOpenDrawerSerieDelete(true);
   }
 
   return (
@@ -42,11 +48,11 @@ export function GetSerieModal({ handleCancel, setOpenDrawerSerieEdit, datasource
             <div className='streaming_details_group'>
               {isAdmin() && (
                 <div className='streaming_details_admin_group'>
-                  <div className='streaming_details_button'>
-                    <img src={Trash} alt="Deletar" />
+                  <div className='streaming_details_button' onClick={handleOpenDelete}>
+                    <img src={Trash} alt="Deletar"/>
                   </div>
-                  <div className='streaming_details_button'>
-                    <img src={Edit} alt="Editar" onClick={handleOpenEdit}/>
+                  <div className='streaming_details_button' onClick={handleOpenEdit}>
+                    <img src={Edit} alt="Editar"/>
                   </div>
                 </div>
               )}
