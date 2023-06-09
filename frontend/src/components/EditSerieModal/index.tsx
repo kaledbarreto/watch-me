@@ -21,7 +21,6 @@ const schema = yup.object().shape({
 export function EditSerie({ setOpenDrawerSerieEdit, id }: any) {
   const { register, handleSubmit } = useForm<IInputs>({resolver: yupResolver(schema)});
   const { mutateAsync: handleEditSerie } = useEditSerie();
-  const { mutateAsync: handleGetOnePlatform, error } = useGetOnePlataform();
 
   const editPlatform = useCallback( async({id, data} : any) => {
     try {
