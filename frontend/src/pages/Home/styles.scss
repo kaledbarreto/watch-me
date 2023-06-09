@@ -17,6 +17,12 @@
   align-items: center;
   gap: 64px;
 
+  @media (max-width: 512px) {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 64px;
+  }
+
   .home_logo {
     width: 128px;
     height: 128px;

@@ -75,3 +75,21 @@ export function useDeleteSerie() {
     await api.delete(`/serie/delete/${id}`)
   );
 }
+
+export function useGetFavorites() {
+  return useMutation(['handleGetOnePlatform'], async () => 
+    await api.get('/favorites')
+  );
+}
+
+export function useFavorite() {
+  return useMutation(['handleAddPlatform'], async (id) =>
+    await api.post(`/favorite/${id}`)
+  );
+}
+
+export function useUnfavorite() {
+  return useMutation(['handleAddPlatform'], async (id) =>
+    await api.post(`/favorite/${id}`)
+  );
+}
