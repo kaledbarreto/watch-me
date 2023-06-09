@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { isAdmin, useGetOnePlataform } from '../../api/client';
 import backArrow from '../../assets/back-arrow.svg';
 import Edit from '../../assets/edit.svg';
@@ -19,6 +19,7 @@ export function StreamingDetails() {
   const [openDrawerEdit, setOpenDrawerEdit] = useState<boolean>(false);
   const [openDrawerDelete, setOpenDrawerDelete] = useState<boolean>(false);
   const [openDrawerAddSerie, setOpenDrawerAddSerie] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const getOnePlatform = useCallback( async(data: any) => {
     try {
@@ -39,7 +40,7 @@ export function StreamingDetails() {
     <div className="streaming_details_container">
       <div className='streaming_details_heading'>
         <div className="streaming_details_back_title">
-          <img src={backArrow} alt="Voltar" />
+          <img src={backArrow} alt="Voltar" onClick={() => navigate('/')}/>
           {data && <h3>{data?.platform.name}</h3>}
         </div>
         <div className='streaming_details_group'>
