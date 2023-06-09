@@ -25,8 +25,6 @@ export function GetSerieModal({ handleCancel, setOpenDrawerSerieEdit, datasource
     setOpenDrawerSerieEdit(true);
   }
 
-  console.log(datasource);
-
   return (
     <div className="modal_backdrop">
       <div className='serie_modal_card'>
@@ -65,5 +63,3 @@ export function GetSerieModal({ handleCancel, setOpenDrawerSerieEdit, datasource
     </div>
   );
 };
-
-// {datasource.description}

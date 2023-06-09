@@ -18,16 +18,19 @@ const schema = yup.object().shape({
   description: yup.string().required(),
 });
 
-export function EditSerie({ setOpenDrawerSerieEdit, id, setData }: any) {
+export function EditSerie({ setOpenDrawerSerieEdit, id }: any) {
   const { register, handleSubmit } = useForm<IInputs>({resolver: yupResolver(schema)});
   const { mutateAsync: handleEditSerie } = useEditSerie();
-
-  console.log(id);
+  const { mutateAsync: handleGetOnePlatform, error } = useGetOnePlataform();
 
   const editPlatform = useCallback( async({id, data} : any) => {
     try {
       await handleEditSerie({id, data});
       toast.success('Serie editada com sucesso!');
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
       return;
     } catch (err) {
       console.log('err: ', err);
