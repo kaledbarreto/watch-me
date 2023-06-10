@@ -1,11 +1,18 @@
 import axios from "axios";
 
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFkbWluIiwiaWF0IjoxNjg2MDkwNTgyfQ.OCuE1SB-5m5Pk3ipk7lr_DhvttQtZlKOJBZB5kAdGO4';
-
 export const api = axios.create({
-  baseURL: 'http://localhost:8000',
+  baseURL: "http://localhost:8000",
   headers: {
-    'Content-type': 'application/json',
-    'Authorization': token ? `Bearer ${token}` : undefined
+    "Content-type": "application/json",
   },
+});
+
+api.interceptors.request.use((config) => {
+  const token = JSON.parse(localStorage.getItem("user") ?? "{}")?.token;
+
+  if (token) {
+    config.headers["Authorization"] = token ? `Bearer ${token}` : undefined;
+  }
+
+  return config;
 });

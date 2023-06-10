@@ -48,9 +48,6 @@
   height: 100%;
   width: 100%;
 
-  overflow: hidden;
-  text-overflow: ellipsis;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,9 +57,4 @@
   line-height: 15px * 1.5;
   text-align: center;
   color: colors.$ivory;
-
-  span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
 }

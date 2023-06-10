@@ -1,0 +1,42 @@
+@use "../../styles/colors.scss" as colors;
+
+.streaming_container {
+  width: 100%;
+
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.straming_header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h3 {
+    font-weight: 500;
+    font-size: 20px * 1.5;
+    line-height: 24px * 1.5;
+    color: colors.$ivory;
+  }
+
+  h4 {
+    font-weight: 500;
+    font-size: 12px * 1.5;
+    line-height: 16px * 1.5;
+    color: colors.$ivory;
+    cursor: pointer;
+  }
+}
+
+.streaming_cards {
+  width: 100%;
+  padding: 16px;
+
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  gap: 16px;
+}
