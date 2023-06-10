@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server.ts",
-    "setup": "ts-node src/setup.ts"
+    "setup": "ts-node src/setup.ts",
+    "start": "node src/server.js"
   },
   "author": "",
   "license": "ISC",
