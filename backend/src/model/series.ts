@@ -51,4 +51,13 @@ const remove = async (id: string) => {
   return result;
 };
 
-export default { getAllByPlatform, getById, save, update, remove };
+const search = async (name: string) => {
+  const result = await database.query(
+    "SELECT * FROM series WHERE name LIKE ?",
+    [`%${name}%`]
+  );
+
+  return result;
+};
+
+export default { getAllByPlatform, getById, save, update, remove, search };
